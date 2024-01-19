@@ -1596,6 +1596,10 @@ NOTE : 针对事物才有加锁的意义。
 
 全局锁就是对整个数据库实例加锁，加锁后整个实例就处于只读状态，后续的DML的写语句，DDL语句，已经更新操作的事务提交语句都将被阻塞。  
 其典型的使用场景是做全库的逻辑备份，对所有的表进行锁定，从而获取一致性视图，保证数据的完整性。  
+全局锁 - 演示
+flush tables with read lock;
+mysqldump -uroot -p1234 itcast>itcast.sql
+unlock tables;
 
 表锁：
 
